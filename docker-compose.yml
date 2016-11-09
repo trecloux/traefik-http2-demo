@@ -1,0 +1,18 @@
+traefik:
+  image: traefik:v1.1.0-rc3
+  ports:
+    - "80:80"
+    - "443:443"
+    - "8080:8080"
+  volumes:
+    - ./traefik:/etc/traefik
+  links:
+     - whoami
+
+whoami:
+  image: emilevauge/whoami
+
+is-http2:
+  build: is-http2
+  links:
+    - traefik:whoami.domain.ltd

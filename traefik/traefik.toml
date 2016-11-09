@@ -1,0 +1,26 @@
+defaultEntryPoints = ["http", "https"]
+
+[entryPoints]
+ [entryPoints.http]
+ address = ":80"
+   [entryPoints.http.redirect]
+     entryPoint = "https"
+ [entryPoints.https]
+ address = ":443"
+   [entryPoints.https.tls]
+       [[entryPoints.https.tls.certificates]]
+       CertFile = "/etc/traefik/cert.pem"
+       KeyFile = "/etc/traefik/key.pem"
+
+[file]
+  [backends]
+    [backends.whoami]
+      [backends.whoami.servers.node1]
+      url = "http://whoami"
+
+[frontends]
+  [frontends.whoami]
+  backend = "whoami"
+  passHostHeader = true
+    [frontends.whoami.routes.entry]
+    rule = "Host: whoami.domain.tld"
