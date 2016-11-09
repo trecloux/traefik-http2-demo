@@ -23,4 +23,4 @@ defaultEntryPoints = ["http", "https"]
   backend = "whoami"
   passHostHeader = true
     [frontends.whoami.routes.entry]
-    rule = "Host: whoami.domain.tld"
+    rule = "Host:whoami.domain.ltd"
