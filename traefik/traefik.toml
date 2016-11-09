@@ -1,4 +1,5 @@
 defaultEntryPoints = ["http", "https"]
+logLevel = "DEBUG"
 
 [entryPoints]
  [entryPoints.http]
@@ -11,6 +12,9 @@ defaultEntryPoints = ["http", "https"]
        [[entryPoints.https.tls.certificates]]
        CertFile = "/etc/traefik/cert.pem"
        KeyFile = "/etc/traefik/key.pem"
+
+[web]
+address = ":8080"
 
 [file]
   [backends]
