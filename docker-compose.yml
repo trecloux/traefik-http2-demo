@@ -1,5 +1,5 @@
 traefik:
-  image: traefik:v1.1.0-rc3
+  image: traefik:v1.1.0-rc4
   ports:
     - "80:80"
     - "443:443"
